@@ -1,4 +1,4 @@
-\documentclass[10pt,landscape,a4paper]{article}
+\documentclass[9pt,landscape,a4paper]{extarticle}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{tikz}
@@ -14,6 +14,8 @@
 \usepackage{microtype}
 \usepackage{bbold}
 \usepackage{wrapfig}
+\usepackage{amsmath} % to get \tfrac
+\usepackage{xfrac} % to get \sfrac
 \usepackage{dsfont} % For mathbb{1}
 
 % START CHEATSHEET TEMPLATE
@@ -37,6 +39,13 @@
 
 \usepackage{paralist}
 
+% custom commands for typsetting
+\newcommand{\Prob}[0]{\mathbb{P}}
+\newcommand{\Quob}[0]{\mathbb{Q}}
+\newcommand{\Ex}[0]{\mathbb{E}}
+\newcommand{\Var}[0]{\textup{Var}}
+\newcommand{\argmin}[0]{\textup{argmin}}
+\newcommand{\se}[0]{\textup{se}}
 
 %--------------------------Editor mode.
 
@@ -54,8 +63,8 @@ backend=biber]
 \DeclareAutoCiteCommand{footnote}[f]{\footcite}{\footcites}
 
 \bibliography{literature}
-%----------------------------------------
-%--------------------------------------------------------------------------------
+% ----------------------------------------
+% --------------------------------------------------------------------------------
 \usepackage{tcolorbox}
 
 \tcbuselibrary{most,listingsutf8,minted}
@@ -77,9 +86,9 @@ right=1mm,boxsep=1mm,middle=1pt}
 \newenvironment{textbox}[1]{\begin{mycolorbox}{customcolor}{#1}}{\end{mycolorbox}}
 
 %-------------------------------
-\newtcblisting{codebox}[2]{colback=codecolor!5,colframe=codecolor!80!black,listing only, 
-minted options={numbers=left,style=tcblatex,fontsize=\scriptsize,breaklines,autogobble,linenos=false,numbersep=2mm},
-left=4mm,enhanced,boxsep=1pt,left=2pt,right=1pt,top=0pt,bottom=0pt,
+\newtcblisting{codebox}[2]{colback=white,colframe=codecolor!80!black,listing only, 
+minted options={numbers=left,style=tcblatex,fontsize=\scriptsize,breaklines,autogobble,linenos=false,numbersep=1mm},
+left=3mm,enhanced,breakable,boxsep=0pt,left=0pt,right=0pt,top=0pt,bottom=0pt,
 title=#2, fonttitle=\bfseries,
 listing engine=minted,minted language=#1}
 
