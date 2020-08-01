@@ -12,13 +12,13 @@ Packages used: boot, leaps, gam, glmnet, ISLR, rpart, tree, randomForest, kknn, 
   unique(x) # vector with elements of x # without duplicates.
   names(object) # gives the stuff that can be returned by object$...
   abline(v=...) # for vertical line in plot (h for horizontal)
-  cbind(), lbind() #
+  cbind(), rbind() # combine cols resp. rows
   hist(..., freq=F) # for probab. scale
-  levels() #
+  levels() # access to the levels attribute of a variable
   complete.cases(data) # removes NA's
-  stripchart(..., method="'stack"') # for small data sets
+  stripchart(..., method="stack") # for small data sets
   fitdistr(data, densfun,...) # fits MLE do data (e.g. densfun="'gamma"')
-  which.max(...) #
+  which.max(...) # returns indices of maxima
   # Test if an element is in a list
   if ("X1" %in% names(coef(m,mo)))
   # Creating categorical variables
