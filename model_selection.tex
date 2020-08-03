@@ -1,5 +1,10 @@
 \section*{Model Selection}
-Criteria for model selection (for linear models): $\text{Mallow's }C_p=\tfrac 1 n (RSS + 2d\cdot \hat\sigma^2)$, $AIC = \tfrac{1}{n\hat\sigma^2}(RSS+2d\cdot\hat\sigma^2)$, $BIC= \tfrac{1}{n\hat\sigma^2}(RSS+\log(n)d\cdot\hat\sigma^2) = -2 \cdot\log(\hat L) + d\cdot\log(n)$ where $\hat L$ is the maximized value of the likelihood of the model, $AdjR^2=1-\tfrac{RSS / (n-d-1)}{TSS / (n-1)}$.
+Criteria for model selection (for linear models): 
+$\text{Mallow's }C_p=\tfrac 1 n (RSS + 2d\cdot \hat\sigma^2)$, 
+$AIC = \tfrac{1}{n\hat\sigma^2}(RSS+2d\cdot\hat\sigma^2)$, 
+$BIC= \tfrac{1}{n\hat\sigma^2}(RSS+\log(n)d\cdot\hat\sigma^2) = -2 \cdot\log(\hat L) + d\cdot\log(n)$, 
+where $\hat L$ is the maximized value of the likelihood of the model, 
+$n$: sample size, $d$: nr. of params in model, $AdjR^2=1-\tfrac{RSS / (n-d-1)}{TSS / (n-1)}$.
 
 \subsection*{Shrinkage Methods}
 Assume centered variable (no intercept).
@@ -27,11 +32,17 @@ $\hat\beta_s^{subset} = \text{argmin}_{\beta, ||\beta||_0 \leq s} RSS(\beta)$. 1
 
 3. Select a single best model from among $\mathcal{M}_0,..., \mathcal{M}_p$, using CV, $C_p$ (AIC), BIC, or adj. $R^2$.
 
-To reduce computational cost, do in step 2. forward/backward stepwise selection.
+To reduce computational cost, do in step 2. forward/backward stepwise selection ($\rightarrow O(p^2)$ models to compare).
 
-\textbf{Forward stepwise:} 1) Fit $M_0$ 2) For $k=0,...,p-1$ fit all $p-k$ models with 1 additional predictor and select best (smallest RSS): $M_k$. 3) Select best among $M_0,....,M_p$ using CV or criteria.
+\textbf{Forward stepwise:} 
+1) Fit $M_0$ 
+2) For $k=0,...,p-1$ fit all $p-k$ models with 1 additional predictor and select best (smallest RSS): $M_k$. 
+3) Select best among $M_0,....,M_p$ using CV or criteria.
 
-\textbf{Backward stepwise:} 1) Fit $M_p$ (full model). 2) For $k=p,p-1,...,1$: fit all $k$ models that drop one perdictor in $M_k$. Choose best (smallest RSS): $M_{k-1}$. 3) Select best among $M_0,...,M_p$ using CV or criteria.
+\textbf{Backward stepwise:} 
+1) Fit $M_p$ (full model). 
+2) For $k=p,p-1,...,1$: fit all $k$ models that drop one perdictor in $M_k$. Choose best (smallest RSS): $M_{k-1}$. 
+3) Select best among $M_0,...,M_p$ using CV or criteria.
 
 \begin{codebox}{r}{Model Selection}
   # Lasso/Ridge
