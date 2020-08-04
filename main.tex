@@ -87,8 +87,8 @@ right=1mm,boxsep=1mm,middle=1pt}
 
 %-------------------------------
 \newtcblisting{codebox}[2]{colback=white,colframe=codecolor!80!black,listing only, 
-minted options={numbers=left,style=tcblatex,fontsize=\scriptsize,breaklines,autogobble,linenos=false,numbersep=1mm},
-left=3mm,enhanced,breakable,boxsep=0pt,left=0pt,right=0pt,top=0pt,bottom=0pt,
+minted options={numbers=left,style=tcblatex,fontsize=\scriptsize,breaklines,autogobble,linenos=false,numbersep=1mm},enhanced,breakable,boxsep=0pt,right=0pt,
+left*=0.5mm,top=0pt,bottom=0pt,beforeafter skip=1mm,grow to left by=.5mm,grow to right by=.5mm,
 title=#2, fonttitle=\bfseries,
 listing engine=minted,minted language=#1}
 

@@ -22,18 +22,18 @@ Note: controlling the FWER is more strict than controlling the FDR:
 if $V\geq 1$, then $Q=V/R \leq 1$ and if $V=0$, then $Q=V/R=0$. So $\mathds{1}_{\{V\geq 1\}}\geq Q$: $\text{FWER}=P(V\geq 1)=E[\mathds{1}_{\{V\geq 1\}} \geq E[Q] = \text{FDR}$. 
 If $m=m_0$/under global null, then $\text{FWER}=\text{FDR}$. Generaly, $\alpha m \geq \text{FWER}\geq\text{FDR}$.
 
-\subsection*{Bonferroni Correction}
+\subsection*{Bonferroni Correction (target FWER)}
 Idea: $\text{FWER}=P(V\geq 1)=P(\textit{at least one false rejection among tests }\allowbreak T_1,...,T_m)=P(\cup_{i=1}^m\{\textit{false rejection in test }T_i\}) \leq \sum_{i=1}^m P(\{\textit{false rej.} \allowbreak \textit{ in test}\}) \leq \sum_{i=1}^m \alpha = m\cdot \alpha$ 
 so we set the signif. level of individual tests to $\alpha' =\alpha /m$ (or, equiv.: $p_{bonf} = min(1, n\cdot p)$), then $\text{FWER}\leq m\alpha' =\alpha$. 
 \textbf{Power:} if the tests are indep. and $m=m_0$ then $\text{FWER}=1-(1-\alpha)^m$ which is $\approx \alpha\cdot m$ for small $\alpha$ and moderate $m$. 
 If the tests are dependent/correlated: too conservative.
 
-\subsection*{Benjamini-Hochberg}
+\subsection*{Benjamini-Hochberg (target FDR)}
 Let $p(1)\leq p(2) \leq ... \leq p(m)$ be ordered p-values. Let $i_0$ be the largest $i$, s.t. $p(i)\leq q\cdot i / m$. 
 Reject all $H_{(i)}$ with $i\leq i_0$. For independent test statistics (or p-values) this controls the $\text{FDR}$ at level $q$, i.e. $\text{FDR}=q\cdot m_0 / m \leq q$. 
 
 \subsection*{Westfall Young Permutation Procedure}
-Provides \textit{weak control of the FWER} (i.e. under the global null). 
+Provides \textit{weak control of the FWER} (i.e. under the global null). Better then Bonferroni because adaptive to dependence between tests.
 
 Given a data $X \in \mathbb{R}^{n\times (m+1)}$ size and $y\in \{0,1\}^n$. 
 If $m=m_0$ then one can permute the y-values:

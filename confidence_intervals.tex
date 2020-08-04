@@ -6,7 +6,7 @@ For new point $x_0$:
 $\hat y_0 = x_0^\top \beta \pm \hat \sigma^2 \sqrt{1 + x_0^\top (X^\top X)^{-1}x_0} \cdot t_{1-\alpha / 2, n-p}$
 
 \textbf{P-Value:} P(obs. a value of the test stat. that is as extreme or more extreme than the one we saw if $H_0$ is true).
-If $< \alpha$ then reject $H_0$.
+If $p < \alpha$, reject $H_0$.
 
 % Too lazy to draw this in LaTeX ;)
 \includegraphics[width=0.7\linewidth]{img/interaction.PNG}
@@ -24,7 +24,7 @@ Consider new pair $(x_0,y_0)$: Then $\Ex[(y_0-\hat f(x_0))^2]=(f(x_0)-\Ex[\hat f
   # P-value: variant 1, 1 sided, H0: <= 6
   res <-  replicate(nsimul, simulateSomething())
   pval.1 <- (1+sum(res.1 <= 6))/(nsimul+1)
-  # P-value: variant 2
+  # P-value, V2. (V3: t.test(...), V4: pnorm(...))
   pval.2 <- 2*pt(qt(1-alpha/2,n-p), df=n-p, lower=FALSE)
   confint(fit) # Automatic CI.
   # Manual CI (for intercept):

@@ -1,11 +1,14 @@
 \section*{Beyond Linearity}
+More bias, less variance. 
 \textbf{Basis Functions:} $y_i = \beta_0 + \beta_1 b_1(x_i) + ... + \beta_k b_k(x_i) + \epsilon_i$
 
 \textbf{Polynomial Regression:}
 $y_i=\beta_0+\beta_1 x_i + \beta_2 x_i^2 +...+\beta_d x_i^d + \epsilon_i$.
 Easy to fit, but unstable near boundaries.
 As basis function: $b_j(x_i) = (x_i)^j$.
-Can also use better (orthogonal) basis functions (R automatically uses these). Using orth. polynomials implies that coefficients do not change when adding higher degree $\rightarrow$ can check until which coefficient it is significant. Gives same result and accuracy as monomial basis.
+Can also use better (orthogonal) basis functions (R automatically uses these). 
+Using orth. polynomials implies that coefficients do not change when adding higher degree $\rightarrow$ can check until which coefficient it is significant. 
+Gives same result and accuracy as monomial basis.
 
 \textbf{Step Functions:}
 Create $k$ cut points $c_1,...,c_k$ in the range of $x$. Then basis functions: $b_j(x_i) = \mathds{}{1}_{\{ c_j < x_i \leq c_{j+1}\}}$.

@@ -1,4 +1,6 @@
 \section*{Bootstrap Aggregating (Bagging)}
+Prevent overfitting, reduce variance.
+
 \textbf{Bagging for Regression:} For data $(X_1,Y_1),...,(X_n,Y_n)$ and base procedure $\hat g(\cdot): \mathbb{R}^p\to \mathbb{R}$, take $B$ bootstrap samples $\hat g_{bag}(x) = \tfrac 1 B \sum_{b=1}^B \hat g^{*b}(x)$ where $\hat g^{*b}$ is the estimate based on the $b$-th bootstrap sample. No pruning, since variance of single tree not a problem as we average. Linear predictions are the same under bagging, so only interesting for non-linear estimates. For regression can only improve or stay the same.
 
 \textbf{Bagging for Classification:}
@@ -10,7 +12,7 @@ Has the advantages that we get the estimated class probabilities; bagging a good
 \textbf{Random Forests:}
 Essentially bagged trees. Have $B$ bootstrap samples $\to$ create trees.
 They reduce dependence between tree estimates by only allowing a random subset of predictors at each split.
-Default: regression $p/3$, classification $\sqrt{p}$. (in R option mtry).
+Default: regression $p/3$, classification $\sqrt{p}$ (in R option mtry).
 
 \textbf{Out-of-Bag Error:}
 Some bags have not trained on a particular sample.
@@ -26,7 +28,7 @@ Can predict this only by the bags that have not been trained on it (should be $\
 
 \begin{codebox}{r}{Random Forests}
   library(randomForest)
-  cs.bag <- randomForest(Sales ~ . , train.data, mtry=p-1) # Bagging
-  cs.forest <- randomForest(Sales ~ . , train.data, mtry=p/3) # Random Forest
+  cs.bag <- randomForest(Sales~., train.data, mtry=p-1) # Bagging
+  cs.forest <- randomForest(Sales~., train.data, mtry=p/3) # Random Forest
   importance(cs.forest) # Importance of predictors. Plot: varImpPlot(...
 \end{codebox}
